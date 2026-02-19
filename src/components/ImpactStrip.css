@@ -1,0 +1,44 @@
+.impact-strip {
+    width: 100%;
+    background-color: var(--navy);
+    padding: 16px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.impact-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.impact-content {
+    border-left: 6px solid var(--orange);
+    padding-left: 32px;
+    text-align: left;
+}
+
+.impact-stat {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.impact-text {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--white);
+    max-width: 800px;
+}
+
+@media (max-width: 768px) {
+    .impact-strip {
+        padding: 40px 24px;
+    }
+
+    .impact-stat {
+        font-size: 1.5rem;
+    }
+}

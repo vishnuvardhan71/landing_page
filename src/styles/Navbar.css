@@ -1,0 +1,200 @@
+/* ============================================================
+   Navbar.css — Sticky Top Navigation Bar
+   ============================================================ */
+
+:root {
+    --nav-bg: #ffffff;
+    /* White background */
+    --nav-orange: #f97316;
+    /* Orange remains primary */
+    --nav-text: #0f172a;
+    /* Deep navy text */
+    --nav-outline: #f97316;
+    --nav-hover: rgba(249, 115, 22, 0.08);
+    --nav-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.navbar-root {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--nav-bg);
+    box-shadow: var(--nav-shadow);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+    /* Added subtle border */
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ── LEFT — Logo ── */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.nav-logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--nav-text);
+    letter-spacing: 0.5px;
+}
+
+/* ── CENTER — Nav Links ── */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+    /* Slate text */
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--nav-orange);
+    background: var(--nav-hover);
+}
+
+.nav-link.active {
+    color: var(--nav-orange);
+    font-weight: 800;
+}
+
+.nav-divider {
+    width: 1px;
+    height: 14px;
+    background: rgba(15, 23, 42, 0.1);
+    margin: 0 8px;
+}
+
+/* ── RIGHT — Action Buttons ── */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-btn {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    text-decoration: none;
+}
+
+.nav-btn--primary {
+    background: var(--nav-orange);
+    color: #ffffff;
+}
+
+.nav-btn--primary:hover {
+    background: #ea6b0a;
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+}
+
+.nav-btn--outline {
+    background: transparent;
+    border: 1.5px solid var(--nav-orange);
+    color: var(--nav-orange);
+}
+
+.nav-btn--outline:hover {
+    background: rgba(249, 115, 22, 0.06);
+    transform: translateY(-1.5px);
+}
+
+/* ── Mobile Toggle ── */
+.nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ── Dropdown Menu ── */
+.nav-dropdown {
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease;
+    background: var(--nav-bg);
+    flex-direction: column;
+}
+
+.nav-dropdown.open {
+    display: flex;
+    max-height: 500px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 12px 24px;
+    }
+
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    .nav-mobile-toggle {
+        display: block;
+    }
+
+    .nav-dropdown-link {
+        display: block;
+        padding: 14px 32px;
+        font-family: 'Exo 2', sans-serif;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-dropdown-actions {
+        padding: 16px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav-dropdown-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,74 @@
+/* ============================================================
+   Semicircle.css — Portal Section (Simplified)
+   ============================================================ */
+
+.semi-section {
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    overflow: hidden;
+    min-height: 200px;
+    /* Reduced since arc is gone */
+}
+
+.semi-btn-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.semi-btn--login {
+    background: transparent;
+    color: var(--nav-orange);
+    border: 2px solid var(--nav-orange);
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
+}
+
+.semi-btn--login:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.2);
+    background: rgba(249, 115, 22, 0.05);
+}
+
+/* ── Sign Up row ── */
+.semi-signup-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 2;
+}
+
+.semi-signup-text {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.semi-signup-link {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--nav-orange);
+    background: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-decoration: underline;
+    transition: color var(--transition), transform var(--transition);
+}
+
+.semi-signup-link:hover {
+    color: #0d2137;
+    transform: translateX(3px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .semi-section {
+        padding: 40px 0;
+    }
+}

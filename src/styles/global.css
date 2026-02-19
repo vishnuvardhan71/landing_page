@@ -1,0 +1,140 @@
+/* ============================================================
+   global.css — Ration-Shield Design Tokens, Reset & Keyframes
+   ============================================================ */
+
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Custom Properties ── */
+:root {
+    --bg-white: #ffffff;
+    --bg-off-white: #f8fafc;
+    --text-primary: #0f172a;
+    /* Deep navy/slate for readability */
+    --text-secondary: #475569;
+    /* Muted slate */
+    --cyan: #0ea5e9;
+    /* Slightly deeper cyan for contrast on white */
+    --orange: #f97316;
+    /* Keeping branding orange */
+    --border-light: rgba(15, 23, 42, 0.08);
+
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Exo 2', sans-serif;
+    --transition: 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Full Reset ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-white);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ── App Wrapper ── */
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* ── Utility ── */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: var(--font-body);
+}
+
+img,
+svg {
+    display: block;
+}
+
+/* ============================================================
+   GLOBAL KEYFRAME ANIMATIONS
+   ============================================================ */
+
+/* Hero title float */
+@keyframes floatY {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-14px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Background orb pulse */
+@keyframes orbPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.14;
+    }
+
+    100% {
+        transform: scale(1.08);
+        opacity: 0.22;
+    }
+}
+
+/* Arc SVG glow pulse */
+@keyframes arcGlow {
+    0% {
+        filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.5)) drop-shadow(0 0 20px rgba(0, 245, 255, 0.2));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 18px rgba(123, 47, 255, 0.8)) drop-shadow(0 0 40px rgba(123, 47, 255, 0.4));
+    }
+}
+
+/* Center portal dot pulse */
+@keyframes dotPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 4px rgba(0, 245, 255, 0.3);
+    }
+
+    100% {
+        transform: scale(1.4);
+        box-shadow: 0 0 12px 6px rgba(0, 245, 255, 0.6);
+    }
+}
+
+/* Header nav hover lift */
+@keyframes navLift {
+    to {
+        transform: translateY(-1px);
+        filter: brightness(1.15);
+    }
+}

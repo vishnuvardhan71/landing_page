@@ -1,0 +1,177 @@
+.honest-shops {
+    padding: 32px 24px;
+    background-color: var(--bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+    gap: 20px;
+}
+
+.honest-shops .section-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.honest-shops .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--orange);
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.district-select {
+    border: 2px solid var(--navy);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    color: var(--navy);
+    background: var(--white);
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.shops-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.shop-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 128, 0.05);
+    border-left: 5px solid transparent;
+}
+
+.shop-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 128, 0.12);
+}
+
+.shop-card.gold {
+    border-left-color: #f59e0b;
+}
+
+.shop-card.platinum {
+    border-left-color: #94a3b8;
+}
+
+.shop-card.diamond {
+    border-left-color: #06b6d4;
+}
+
+.badge-pill {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.badge-pill.gold {
+    background-color: #f59e0b;
+}
+
+.badge-pill.platinum {
+    background-color: #94a3b8;
+}
+
+.badge-pill.diamond {
+    background-color: #06b6d4;
+}
+
+.shop-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-right: 60px;
+}
+
+.shop-checklist {
+    list-style: none;
+    padding: 0;
+}
+
+.check-item {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--green);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.ai-score {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--orange);
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+.footer-link {
+    text-align: right;
+}
+
+.view-all {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--orange);
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.view-all:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 900px) {
+    .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .shops-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .section-title {
+        font-size: 1.5rem;
+    }
+}

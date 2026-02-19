@@ -1,0 +1,435 @@
+/* ============================================================
+   Hero.css — Advanced Full-Viewport Hero Section
+   ============================================================ */
+
+:root {
+    --hero-bg: #ffffff;
+    --hero-text: #0f172a;
+    /* Deep navy text */
+    --hero-subtext: #475569;
+    /* Slate subtext */
+    --orange: #f97316;
+    --cyan: #0ea5e9;
+    --card-bg: #ffffff;
+    --card-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--hero-bg);
+}
+
+/* ── Dot Grid Texture (Optimized for light) ── */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 80px 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 2;
+    position: relative;
+}
+
+/* ── LEFT COLUMN ── */
+.hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(14, 165, 233, 0.08);
+    /* Light cyan bg */
+    border: 1.5px solid rgba(14, 165, 233, 0.15);
+    color: var(--cyan);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 8px 18px;
+    border-radius: 40px;
+    margin-bottom: 28px;
+    opacity: 0;
+}
+
+.hero-headline {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    font-weight: 900;
+    color: var(--hero-text);
+    line-height: 1.1;
+    margin-bottom: 28px;
+    opacity: 0;
+}
+
+.hero-headline .highlight {
+    color: var(--orange);
+    position: relative;
+}
+
+.hero-subheadline {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--hero-subtext);
+    line-height: 1.8;
+    max-width: 550px;
+    margin-bottom: 44px;
+    opacity: 0;
+}
+
+.hero-subheadline .orange {
+    color: var(--orange);
+    font-weight: 700;
+}
+
+.hero-subheadline .cyan {
+    color: var(--cyan);
+    font-weight: 700;
+}
+
+.hero-ctas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 56px;
+    opacity: 0;
+}
+
+.hero-btn {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 14px 32px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-btn--outline {
+    border: 2px solid #cbd5e1;
+    /* Light slate border */
+    color: #1e293b;
+}
+
+.hero-btn--outline:hover {
+    border-color: var(--hero-text);
+    background: rgba(15, 23, 42, 0.03);
+    transform: translateY(-2px);
+}
+
+.hero-btn--primary {
+    background: var(--orange);
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(249, 115, 22, 0.25);
+}
+
+.hero-btn--primary:hover {
+    background: #ea6b0a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(249, 115, 22, 0.4);
+}
+
+/* Stats Row */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    opacity: 0;
+}
+
+.hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-stat-number {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--hero-text);
+    white-space: nowrap;
+}
+
+.hero-stat-label {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.72rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.hero-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(15, 23, 42, 0.1);
+}
+
+/* ── RIGHT COLUMN — Illustration ── */
+.hero-illustration {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 20px;
+    padding: 24px 20px;
+    text-align: center;
+    width: 130px;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+}
+
+.hero-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(15, 23, 42, 0.15);
+}
+
+.hero-card-icon {
+    margin-bottom: 16px;
+}
+
+.hero-card-label {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--hero-text);
+}
+
+.hero-flow-arrow {
+    opacity: 0;
+    color: #cbd5e1;
+}
+
+/* ── NEWS BANNER ── */
+.hero-news-banner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #f8fafc;
+    /* Very light slate */
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10;
+}
+
+.news-label {
+    background: var(--hero-text);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 6px;
+}
+
+.news-marquee-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.news-marquee-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--hero-subtext);
+    animation: marquee 30s linear infinite;
+    padding-left: 100%;
+    /* Push text to the right starting point */
+}
+
+.news-details-link {
+    background: var(--orange);
+    color: #ffffff;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+.news-details-link:hover {
+    background: #ea6b0a;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.35);
+}
+
+/* ── ANIMATIONS (Shared) ── */
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.hero-section.visible .hero-eyebrow {
+    animation: fadeSlideUp 0.6s ease forwards;
+}
+
+.hero-section.visible .hero-headline {
+    animation: fadeSlideUp 0.6s ease forwards;
+    animation-delay: 0.15s;
+}
+
+.hero-section.visible .hero-subheadline {
+    animation: fadeSlideUp 0.6s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.hero-section.visible .hero-ctas {
+    animation: fadeSlideUp 0.6s ease forwards;
+    animation-delay: 0.45s;
+}
+
+.hero-section.visible .hero-stats {
+    animation: fadeSlideUp 0.6s ease forwards;
+    animation-delay: 0.6s;
+}
+
+.hero-section.visible .hero-card {
+    animation: fadeSlideUp 0.7s ease forwards;
+}
+
+.hero-section.visible .card-1 {
+    animation-delay: 0.2s;
+}
+
+.hero-section.visible .card-2 {
+    animation-delay: 0.4s;
+}
+
+.hero-section.visible .card-3 {
+    animation-delay: 0.6s;
+}
+
+.hero-section.visible .card-4 {
+    animation-delay: 0.8s;
+}
+
+.hero-section.visible .hero-flow-arrow {
+    animation: fadeSlideUp 0.7s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    .hero-grid {
+        gap: 40px;
+        padding: 60px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 48px 24px;
+        gap: 60px;
+    }
+
+    .hero-left {
+        align-items: center;
+    }
+
+    .hero-headline {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .hero-subheadline {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .hero-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-stat-divider {
+        display: none;
+    }
+
+    .hero-illustration {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .hero-flow-arrow {
+        display: none;
+    }
+
+    .hero-card {
+        width: 100%;
+    }
+
+    .hero-news-banner {
+        padding: 8px 16px;
+    }
+}

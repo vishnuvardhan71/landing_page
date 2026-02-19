@@ -1,0 +1,189 @@
+.district-rankings {
+    padding: 32px 24px;
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.district-rankings .section-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--navy);
+    margin-bottom: 40px;
+}
+
+.search-bar {
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.search-bar input {
+    border: 2px solid var(--navy);
+    border-radius: 8px;
+    padding: 10px 16px;
+    width: 280px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    outline: none;
+    transition: box-shadow 0.2s;
+}
+
+.search-bar input:focus {
+    box-shadow: 0 0 0 3px rgba(0, 0, 128, 0.1);
+}
+
+.rankings-scroll-wrapper {
+    max-height: 250px;
+    overflow-y: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    scroll-behavior: smooth;
+    position: relative;
+    border: 1px solid #e2e8f0;
+}
+
+/* Custom scrollbar */
+.rankings-scroll-wrapper::-webkit-scrollbar {
+    width: 6px;
+}
+
+.rankings-scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.rankings-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--navy);
+    border-radius: 4px;
+}
+
+.rankings-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+}
+
+.rankings-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: var(--font-body);
+}
+
+.rankings-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.rankings-table th {
+    padding: 16px 20px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.rankings-table td {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 0.95rem;
+}
+
+.rank-top {
+    background: rgba(19, 136, 8, 0.07);
+}
+
+.rank-mid {
+    background: rgba(245, 158, 11, 0.06);
+}
+
+.rank-bottom {
+    background: rgba(220, 38, 38, 0.07);
+}
+
+.rank-badge {
+    font-weight: 700;
+    color: var(--navy);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rank-badge.medal {
+    font-size: 1.2rem;
+}
+
+.district-name {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.compliance-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.compliance-cell span {
+    min-width: 40px;
+    font-weight: 600;
+}
+
+.progress-bg {
+    flex: 1;
+    height: 6px;
+    background-color: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 120px;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.5s ease-out;
+}
+
+.risk-count {
+    color: var(--red);
+    font-weight: 600;
+}
+
+.trend-cell {
+    font-weight: 700;
+}
+
+.trend-cell.up {
+    color: #22c55e;
+}
+
+.trend-cell.down {
+    color: #ef4444;
+}
+
+.trend-cell.none {
+    color: #94a3b8;
+}
+
+.last-updated {
+    text-align: right;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+}
+
+@media (max-width: 768px) {
+    .rankings-scroll-wrapper {
+        overflow-x: auto;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+}

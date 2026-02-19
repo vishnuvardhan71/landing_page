@@ -1,0 +1,96 @@
+/* ============================================================
+   Header.css — Two-Layer Government Header Styles
+   ============================================================ */
+
+/* ── Sticky wrapper ── */
+.header-root {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+}
+
+/* ════════════════════════════════════════
+   LAYER 1 — White Logo Bar
+   ════════════════════════════════════════ */
+.header-logo-bar {
+    background: #ffffff;
+    border-bottom: 3px solid #003a8c;
+    padding: 0.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Left: logo icon + site name block */
+.header-logo-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-logo-icon {
+    flex-shrink: 0;
+}
+
+.header-site-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.header-site-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    background: linear-gradient(90deg, #003a8c 0%, #7b2fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+}
+
+.header-subtitle-1 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.78rem);
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.header-subtitle-2 {
+    font-family: 'Exo 2', sans-serif;
+    font-size: clamp(0.6rem, 1.4vw, 0.72rem);
+    font-weight: 400;
+    color: #555;
+    letter-spacing: 0.03em;
+}
+
+.header-logo-img {
+    height: 60px;
+    width: auto;
+    flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .header-logo-bar {
+        padding: 0.5rem 1rem;
+    }
+
+    .header-badges {
+        gap: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-site-name {
+        font-size: 1rem;
+    }
+
+    .header-badges {
+        display: none;
+    }
+}
