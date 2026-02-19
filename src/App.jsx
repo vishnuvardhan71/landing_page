@@ -1,43 +1,20 @@
-/**
- * App.jsx — Root component
- * Assembles Header, Hero, Semicircle, and Footer in a full-page
- * vertical layout. Imports global.css for design tokens and reset.
- */
-
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import './index.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import ImpactStrip from './components/ImpactStrip';
-import LiveStats from './components/LiveStats';
-import HonestShops from './components/HonestShops';
-import FraudHeatMap from './components/FraudHeatMap';
-import DistrictRankings from './components/DistrictRankings';
-import HowItWorks from './components/HowItWorks';
-import RecentAlerts from './components/RecentAlerts';
-import TransparencyReports from './components/TransparencyReports';
-import ImpactStories from './components/ImpactStories';
-import CallToAction from './components/CallToAction';
-import SecuritySection from './components/SecuritySection';
-import Footer from './components/Footer';
 
-export default function App() {
+function App() {
   return (
-    <div className="app-wrapper">
-      <Navbar />
-      <Hero />
-      <ImpactStrip />
-      <LiveStats />
-      <HonestShops />
-      <FraudHeatMap />
-      <DistrictRankings />
-      <HowItWorks />
-      <RecentAlerts />
-      <TransparencyReports />
-      <ImpactStories />
-      <CallToAction />
-      <SecuritySection />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
+
+export default App;

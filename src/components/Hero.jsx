@@ -8,7 +8,8 @@
  * - Infinite news marquee banner
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Hero.css';
 
 /** ── SVG Components ── **/
@@ -41,7 +42,11 @@ const ArrowSVG = () => (
     </svg>
 );
 
-export default function Hero() {
+/**
+ * Hero component for RationShield
+ */
+const Hero = ({ siteName = "RATION-SHIELD" }) => {
+    const navigate = useNavigate();
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
@@ -51,31 +56,33 @@ export default function Hero() {
     }, []);
 
     return (
-        <section className={`hero-section ${isVisible ? 'visible' : ''}`} aria-label="Hero">
-
+        <section className={`hero-section ${isVisible ? 'visible' : ''}`} id="home">
             <div className="hero-grid">
 
-                {/* ── LEFT COLUMN ── */}
+                {/* ── LEFT COLUMN — Text Content ── */}
                 <div className="hero-left">
                     <div className="hero-eyebrow">
-                        <span>🔗 Powered by Blockchain + AI</span>
+                        <span><span className="pulse-dot"></span> Live Transparency Dashboard</span>
                     </div>
 
                     <h1 className="hero-headline">
-                        Every Grain Reaches the <span className="highlight">Right Person</span>
+                        Every Grain Reaches the <br />
+                        <span className="highlight">Right Person</span>
                     </h1>
 
                     <p className="hero-subheadline">
-                        Ensuring <span className="orange">4.42 Crore</span> beneficiaries in Andhra Pradesh receive their full food entitlement — powered by <span className="cyan">Blockchain, AI</span>, and citizen voice.
+                        RationShield ensures every grain reaches the right doorstep.
+                        Real-time tracking, fraud detection, and direct citizen
+                        access—redefining the Public Distribution System for a New AP.
                     </p>
 
                     <div className="hero-ctas">
-                        <a href="#data" className="hero-btn hero-btn--outline">
-                            <span aria-hidden="true">📊</span> View Public Data
-                        </a>
-                        <a href="#login" className="hero-btn hero-btn--primary">
-                            <span aria-hidden="true">🔐</span> Activate / Login
-                        </a>
+                        <button className="hero-btn hero-btn--primary" onClick={() => navigate('/signup')}>
+                            🔐 Activate account / Login
+                        </button>
+                        <button className="hero-btn hero-btn--outline" onClick={() => navigate('/#dashboard')}>
+                            📊 View Public Data
+                        </button>
                     </div>
 
                     <div className="hero-stats">
@@ -136,7 +143,6 @@ export default function Hero() {
                         </div>
                     </div>
                 </div>
-
             </div>
 
             {/* ── NEWS BANNER ── */}
@@ -153,4 +159,6 @@ export default function Hero() {
 
         </section>
     );
-}
+};
+
+export default Hero;

@@ -1,0 +1,172 @@
+.auth-page {
+    min-height: 100vh;
+    background: #f8fafc;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.auth-card {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 128, 0.1);
+    border: 1px solid rgba(0, 0, 128, 0.05);
+}
+
+.auth-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #000080;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.auth-header p {
+    color: #64748b;
+    font-family: 'Exo 2', sans-serif;
+}
+
+.login-toggle {
+    display: flex;
+    background: #f1f5f9;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.login-toggle button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.login-toggle button.active {
+    background: white;
+    color: #000080;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: 'Exo 2', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #FF9933;
+}
+
+.input-with-action {
+    display: flex;
+    gap: 10px;
+}
+
+.input-with-action input {
+    flex: 1;
+}
+
+.btn-inline {
+    background: #000080;
+    color: white;
+    border: none;
+    padding: 0 15px;
+    border-radius: 8px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.auth-submit {
+    background: #000080;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'Exo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+.auth-submit:hover {
+    background: #000066;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 128, 0.3);
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Exo 2', sans-serif;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.auth-footer span {
+    color: #FF9933;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

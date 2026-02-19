@@ -10,26 +10,32 @@
  */
 
 import React from 'react';
-import '../styles/Semicircle.css';
+import { useNavigate } from 'react-router-dom';
+import './Semicircle.css';
 
-export default function Semicircle({ onLogin, onSignUp }) {
+const Semicircle = () => {
+    const navigate = useNavigate();
+
     return (
-        <section className="semi-section" aria-label="Portal access">
-
-            {/* ── Login button removed as requested ── */}
-
-            {/* ── Sign Up — secondary link ── */}
-            <div className="semi-signup-row">
-                <span className="semi-signup-text">New user?</span>
-                <button
-                    className="semi-signup-link"
-                    onClick={onSignUp}
-                    aria-label="Create a new account"
-                >
-                    Sign Up →
-                </button>
+        <div className="semicircle-container">
+            <div className="semicircle-outer">
+                <div className="semicircle-inner">
+                    <div className="semicircle-content">
+                        <h2 className="semicircle-title">CHOOSE YOUR PATH</h2>
+                        <p className="semicircle-text">Secure your supply chain with our blockchain solution</p>
+                        <div className="semicircle-actions">
+                            <button className="arc-btn login-btn" onClick={() => navigate('/login')}>
+                                🔑 LOGIN
+                            </button>
+                            <button className="arc-btn signup-btn" onClick={() => navigate('/signup')}>
+                                🚀 SIGN UP
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-        </section>
+        </div>
     );
-}
+};
+
+export default Semicircle;
