@@ -21,6 +21,11 @@ const Signup = () => {
         e.preventDefault();
         setError('');
 
+        const today = new Date().toISOString().split('T')[0];
+        if (formData.dob > today) {
+            return setError('Date of Birth cannot be in the future');
+        }
+
         if (formData.cardNumber.length < 5) {
             return setError('Invalid Ration Card Number');
         }
@@ -71,7 +76,17 @@ const Signup = () => {
                                 <input
                                     type="date"
                                     value={formData.dob}
-                                    onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+                                    onChange={(e) => {
+                                        const val = e.target.value;
+                                        const today = new Date().toISOString().split('T')[0];
+                                        if (val > today) {
+                                            setError('Date of Birth cannot be in the future');
+                                        } else {
+                                            setError('');
+                                        }
+                                        setFormData({ ...formData, dob: val });
+                                    }}
+                                    max={new Date().toISOString().split('T')[0]}
                                     required
                                 />
                             </div>

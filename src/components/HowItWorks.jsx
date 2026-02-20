@@ -53,7 +53,7 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="how-it-works">
+        <section className="how-it-works" id="about">
             <div className="container">
                 <h2 className="section-title">⚙️ How It Works</h2>
                 <div className="steps-grid">

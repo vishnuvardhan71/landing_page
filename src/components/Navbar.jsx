@@ -9,11 +9,30 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
+    const scrollToSection = (e, id) => {
+        if (location.pathname === '/') {
+            e.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            // Let the default link behavior take over or use navigate
+            // navigate(`/#${id}`); 
+        }
+    };
+
     return (
         <nav className="navbar-root">
             <div className="navbar-container">
                 {/* LEFT — Logo */}
-                <div className="nav-logo" onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+                <div className="nav-logo" onClick={() => {
+                    if (location.pathname === '/') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        navigate('/');
+                    }
+                }} style={{ cursor: 'pointer' }}>
                     <svg
                         className="nav-logo-icon"
                         viewBox="0 0 32 32"
@@ -38,14 +57,24 @@ const Navbar = () => {
 
                 {/* CENTER — Links */}
                 <div className={`nav-links ${menuOpen ? 'open' : ''}`}>
-                    <a onClick={() => navigate('/')}
+                    <a onClick={(e) => {
+                        if (location.pathname === '/') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            navigate('/');
+                        }
+                    }}
+                        href="/"
                         className={isActive('/') ? 'active' : ''}>Home</a>
                     <span className="nav-divider">|</span>
-                    <a href="/#about"
-                        className="">About</a>
-                    <span className="nav-divider">|</span>
                     <a href="/#dashboard"
+                        onClick={(e) => scrollToSection(e, 'dashboard')}
                         className="">Public Dashboard</a>
+                    <span className="nav-divider">|</span>
+                    <a href="/#about"
+                        onClick={(e) => scrollToSection(e, 'about')}
+                        className="">About</a>
                 </div>
 
                 {/* RIGHT — Buttons */}
@@ -70,9 +99,17 @@ const Navbar = () => {
             {/* Mobile Menu Dropdown */}
             {menuOpen && (
                 <div className="nav-dropdown open">
-                    <a onClick={() => { navigate('/'); setMenuOpen(false); }} className="nav-dropdown-link">Home</a>
-                    <a href="/#about" onClick={() => setMenuOpen(false)} className="nav-dropdown-link">About</a>
-                    <a href="/#dashboard" onClick={() => setMenuOpen(false)} className="nav-dropdown-link">Public Dashboard</a>
+                    <a onClick={(e) => {
+                        if (location.pathname === '/') {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            navigate('/');
+                        }
+                        setMenuOpen(false);
+                    }} href="/" className="nav-dropdown-link">Home</a>
+                    <a href="/#dashboard" onClick={(e) => { scrollToSection(e, 'dashboard'); setMenuOpen(false); }} className="nav-dropdown-link">Public Dashboard</a>
+                    <a href="/#about" onClick={(e) => { scrollToSection(e, 'about'); setMenuOpen(false); }} className="nav-dropdown-link">About</a>
                     <div className="nav-dropdown-actions">
                         <button className="btn-activate" onClick={() => { navigate('/signup'); setMenuOpen(false); }}>Activate account</button>
                         <button className="btn-login-outline" onClick={() => { navigate('/login'); setMenuOpen(false); }}>Login</button>

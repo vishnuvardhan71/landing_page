@@ -54,7 +54,7 @@ const FraudHeatMap = () => {
     };
 
     return (
-        <section className="fraud-heatmap">
+        <section className="fraud-heatmap" id="dashboard">
             <div className="container">
                 <h2 className="section-title">🗺️ Fraud Risk Heat Map – Andhra Pradesh</h2>
 
