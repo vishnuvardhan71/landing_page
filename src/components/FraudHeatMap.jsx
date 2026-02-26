@@ -83,9 +83,8 @@ const FraudHeatMap = () => {
                                     key={d.id}
                                     className="district-cell"
                                     style={{
-                                        gridRow: d.grid.r,
-                                        gridColumn: d.grid.c,
-                                        backgroundColor: color
+                                        gridRow: `${d.grid.r} / span 2`,
+                                        gridColumn: `${d.grid.c} / span 2`
                                     }}
                                     onMouseEnter={() => setHoveredDistrict({ ...d, currentScore: score })}
                                     onMouseLeave={() => setHoveredDistrict(null)}

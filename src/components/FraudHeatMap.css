@@ -50,40 +50,46 @@
 .map-grid {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(12, 45px);
-    gap: 8px;
+    grid-template-rows: repeat(12, 42px);
+    gap: 2px;
     width: 100%;
-    max-width: 800px;
-    background: rgba(0, 0, 128, 0.03);
-    padding: 24px;
-    border-radius: 20px;
+    max-width: 720px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #111827;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
+    background-color: #ffffff;
+    /* Andhra Pradesh districts political map with clear state + district borders */
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Map_of_all_Andhra_Pradesh_districts-en.svg/960px-Map_of_all_Andhra_Pradesh_districts-en.svg.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .district-cell {
-    border-radius: 6px;
+    position: relative;
+    align-self: stretch;
+    justify-self: stretch;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: transform 0.2s ease, filter 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 4px;
+    box-shadow: none;
+    padding: 0;
+    border: none;
+    background-color: transparent !important; /* keep the visual map from the image, not from square fills */
 }
 
 .district-cell:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     z-index: 10;
-    filter: brightness(1.2);
+    filter: brightness(1.05);
 }
 
 .district-name-tiny {
-    color: white;
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-align: center;
-    pointer-events: none;
-    line-height: 1.1;
+    /* Hide overlay labels so we only see labels from the base map image */
+    display: none;
 }
 
 .tooltip {
@@ -148,7 +154,7 @@
     gap: 8px;
     font-family: var(--font-body);
     font-size: 0.8rem;
-    color: var(--muted);
+    color: #4b5563;
 }
 
 .dot {
